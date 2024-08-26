@@ -25,29 +25,29 @@ public class Main {
         }
 
         try {
-            System.out.print("Digite o primeiro numero: ");
+            System.out.println("Digite o primeiro numero: ");
             double num1 = scanner.nextDouble();
             
-            System.out.print("Digite o segundo numero: ");
+            System.out.println("Digite o segundo numero: ");
             double num2 = scanner.nextDouble();
 
-            System.out.print("Digite a operacao (+, -, *, /): ");
+            System.out.println("Digite a operacao (+, -, *, /): ");
             char operator = scanner.next().charAt(0);
 
             Operation operation = Operation.fromChar(operator);
             Calculator calculator = new Calculator();
             double result = calculator.calculate(num1, num2 operation);
 
-            System.out.printIn(num1 + " " + operator + " " + num2 + " = " + decimalFormat.format(result));
+            System.out.println(num1 + " " + operator + " " + num2 + " = " + decimalFormat.format(result));
         
         } catch (InputMismatchException e) {
-            System.out.printIn("Erro: Entrada inválida!");
+            System.out.println("Erro: Entrada inválida!");
         } catch (ArithmeticException e) {
-            System.out.printIn("Erro: " + e.getMessage());
+            System.out.println("Erro: " + e.getMessage());
         } catch (UnsupportedOperationException e) {
-            System.out.printIn("Erro: " + e.getMessage());
+            System.out.println("Erro: " + e.getMessage());
         } catch (Exception e){
-            System.out.printIn("Erro inesperado: " + e.getMessage());
+            System.out.println("Erro inesperado: " + e.getMessage());
         } finally {
             scanner.close();
         }
@@ -57,7 +57,7 @@ public class Main {
         Properties properties = new Properties();
         try (InputStream input = Main.class.getClassLoader().getResourceAsStream("config.properties")) {
             if (input == null) {
-                System.out.printIn("Desculpe, nao foi possivel encontrar o arquivo config.properties");
+                System.out.println("Desculpe, nao foi possivel encontrar o arquivo config.properties");
                 return properties;
             }
             properties.load(input);
